@@ -1,9 +1,17 @@
 install.packages("packageRank")
 library(packageRank)
 
-cranlogs::cran_downloads(packages = "ggrain", from = "2023-02-14", to = "2024-03-20")
+cranlogs::cran_downloads(packages = "ggrain", from = "2023-02-14", to = "2024-05-03")
 
-plot(cranDownloads(packages = "lavaan", from = "2012-10-01", to = "2024-04-17"), smooth = TRUE, se = TRUE, package.version = TRUE)
+plot(cranDownloads(packages = "ggrain", from = "2023-02-14", to = "2024-05-03"), smooth = TRUE, se = TRUE, package.version = TRUE)
+
+ggrain_downloads <- cranDownloads(packages = "ggrain", from = 2023)
+df_ggrain <- data.frame(ggrain_downloads$cranlogs.data)
+
+
+ggplot(df_ggrain, aes(x=date, y=cumulative)) + geom_line(aes(fill = 'darkred')) + 
+  labs(x="Date", y="Cumulative downloads", title = "ggrain downloads over time") + theme_bw()
+
 
 
 package_log <- packageRank::packageLog(package = "ggrain", ip.filter = TRUE)
