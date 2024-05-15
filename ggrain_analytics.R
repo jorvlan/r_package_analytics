@@ -10,7 +10,7 @@ df_ggrain <- data.frame(ggrain_downloads$cranlogs.data)
 
 
 ggplot(df_ggrain, aes(x=date, y=cumulative)) + geom_line(aes(fill = 'darkred')) + 
-  labs(x="Date", y="Cumulative downloads", title = "ggrain downloads over time") + theme_bw()
+  labs(x="Date", y="Cumulative downloads", title = "ggrain downloads over time") + theme_bw(base_size = 10)
 
 
 
